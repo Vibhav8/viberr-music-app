@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Viberr{% endblock %}</title>
+	<!--loads the path to your static files -->
+	{% load staticfiles %}
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script src={% static 'music/js/main.js' %}"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	<div class="container-field"> <!--container-fluid-navigation bar fills the whole width of page -->
+	
+	<!--header -->
+
+	<div class="navbar-header">  <!--navbar-header to indicate logo -->
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar"> <!--menu button-->
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span> <!--21 22 23 to make lines on menu button-->
+		</button>
+		<a class="navbar-brand" href="{% url 'music:index' %}">Viberr</a>	
+	</div>
+
+	<!--navigation Items-->
+	<div class="collapse navbar-collapse" id="topNavBar"> <!--items under this will collapse-->
+		
+
+		<ul class="nav navbar-nav">
+			<li class=""> <!--active : the button currently active always lit up-->
+				<a href="{% url 'music:index' %}">
+					<span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp; Albums<!--glyphicon glyphicon-cd : cd icon before Albums button ,&nbsp:for spacing between two buttons-->
+				</a>
+			</li>
+			<li class="">
+				<a href="#">
+					<span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp; Songs
+					<!--glyphicon glyphicon-music : music icon before songs button ,&nbsp:for spacing between two buttons-->
+				</a>
+			</li>
+		</ul>
+
+		<form class="navbar-form navbar-left" role="search" method="get" action="#">
+			<div class="form-group"> <!--form-group:for styling-->
+			<input type="text" class="form-control" name="q" value="">
+			</div>
+			<button type="submit" class="btn btn-default">
+				Search
+			</button>
+		</form>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li class="">
+				<a href="{% url 'music:album-add' %}">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Album
+				</a>
+			</li>
+
+			<li class="">
+				<a href="{% url 'music:album:add' %}">
+					<span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	</div>
+</nav>
+{% block body %} <!--to include this code in other html files-->
+{% endblock %}
+</body>
+</html>

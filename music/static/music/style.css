@@ -1,0 +1,11 @@
+body{
+	background: white url("images/back6.jpg");
+}
+
+.navbar{
+	border-radius: 0; /** to make navbar edges not curvy **/
+}
+
+.navbar-brand{
+	font-family: 'Satisfy', cursive;
+}
