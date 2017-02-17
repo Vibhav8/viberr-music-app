@@ -119,3 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #BASE_DIR is directory where project exist and here we are joing it with media file .this media root is file on our system which stores the music files
+MEDIA_URL = '/media/' #media url is reference of files in our system to browser
